@@ -14,91 +14,56 @@ let output_final = [];
 let callcount = 0;
 let callcounts = 0;
 
-for (let i = 0; i < 10; i++){
-    document.getElementById(i).addEventListener("click", () => {
-        if (operator_sign){
-            second_input.push(i);
-            output2 = second_input.join("");
-            result.value = output2;
-        } else {
-            first_input.push(i);
-            output = first_input.join("");
-            result.value = output;
+let allKeyInputs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ".", "c", "equal-to", "add", "divide", "multiply", "subtract", "percentage", "square-root"];
+let signs = ["+", "÷", "x", "-"]
+
+for (let i = 0; i < allKeyInputs.length; i++){
+    document.getElementById(allKeyInputs[i]).addEventListener("click", () => {
+        if (i >= 0 && i <= 10) {
+            if (operator_sign){
+                second_input.push(allKeyInputs[i]);
+                output2 = second_input.join("");
+                result.value = output2;
+            } else {
+                first_input.push(allKeyInputs[i]);
+                output = first_input.join("");
+                result.value = output;
+            }
+        }
+        switch (i){
+            case 11:
+                result.value = "";
+                first_input.splice(0, first_input.length);
+                second_input.splice(0, second_input.length);
+                break;
+
+            case 12:
+                calculation();
+                break;
+
+            case 17:
+                output_final = parseInt(output) * 0.01;
+                result.value = output_final;
+                break;
+            
+            case 18:
+                output_final = Math.sqrt(parseInt(output));
+                result.value = output_final;
+                break;
+        }
+        if (i >= 13 && i <= 16){
+            callcount += 1;  
+            if (callcount > 1){
+                calculation2();
+                operator_sign = allKeyInputs[i];
+            } else {
+                operator_sign = allKeyInputs[i];
+                for (let i = 0; i < signs.length; i++){
+                    result.value = signs[i]; 
+                }
+            }
         }
     })
-}
-
-
-function displaybuttons15(){
-    if (operator_sign){
-        second_input.push(".");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push(".");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-
-
-
-// This is where the operators will go to
-function displaybuttons17(){
-    callcount += 1;
-    if (callcount > 1){
-        calculation2();
-        operator_sign = "add";
-    } else {
-        operator_sign = "add";
-        result.value = "+";
-    }
-}
-function displaybuttons111(){
-    callcount += 1;  
-    if (callcount > 1){
-        calculation2();
-        operator_sign = "divide";
-    } else {
-        operator_sign = "divide";
-        result.value = "÷"; 
-    }
-
-
-}
-function displaybuttons11(){
-    callcount += 1;
-    if (callcount > 1){
-        calculation2();
-        operator_sign = "subtract";
-    } else {
-        operator_sign = "subtract";
-        result.value = "-";
-    }
- 
-}
-function displaybuttons3(){
-    callcount += 1;
-    if (callcount > 1){
-        calculation2();
-        operator_sign = "multiply";
-    } else {
-        operator_sign = "multiply";
-        result.value = "x";
-    }
-
-}
-function displaybuttons2(){
-    callcount += 1;
-    if (callcount > 1){
-        calculation2();
-        operator_sign = "percent";
-    } else {
-        operator_sign = "percent";
-        result.value = "%";
-        percentage();
-    }
-
 }
 /************************************************/
 
@@ -161,20 +126,4 @@ function calculation2() {
 
     second_input = [];
     console.log (output2);
-}
-
-function percentage(){
-    output_final = parseInt(output) * 0.01;
-    result.value = output_final;
-}
-
-function squareRoot(){
-    output_final = Math.sqrt(parseInt(output));
-    result.value = output_final;
-}
-
-function clearscreen(){
-    result.value = "";
-    first_input.splice(0, first_input.length);
-    second_input.splice(0, second_input.length);
 }
