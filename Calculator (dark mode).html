@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link type="text/css" rel="stylesheet" href="Calculator (dark mode).css" />
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+        <div id="calculator">
+            <div class="header">
+            <div>
+                <i class="fas fa-bars" onclick="drop_down_menu()"></i>
+                <!-- <div class="drop-down-menu">
+                    <ul style="list-style: none;">
+                        <li>sin</li>
+                        <li>cos</li>
+                        <li>tan</li>
+                        <li>log</li>
+                        <li>ln</li>
+                    </ul>
+                </div> -->
+            </div>
+            <h1>Calculator</h1>
+            <i class="fas fa-moon" id="lala" onclick="changetheme()"></i>
+            </div>
+            
+            <input id= "result">
+            
+            <div class="buttons">
+                <div class="first">
+                    <button id="c" onclick="clearscreen()">C</button>
+                    <button id="divide" onclick="displaybuttons1()">÷</button>
+                    <button id="percentage" onclick="displaybuttons2()">%</button>
+                    <button id="multiply" onclick="displaybuttons3()">×</button>
+                </div>
+                <div class="second">
+                    <button id="7" onclick="displaybuttons4()">7</button>
+                    <button id="8" onclick="displaybuttons5()">8</button>
+                    <button id="9" onclick="displaybuttons6()">9</button>
+                    <button id="square-root" onclick="displaybuttons7()">√</button>
+                </div>
+                <div class="third">
+                    <button id="4" onclick="displaybuttons8()">4</button>
+                    <button id="5" onclick="displaybuttons9()">5</button>
+                    <button id="6" onclick="displaybuttons10()">6</button>
+                    <button id="subtract" onclick="displaybuttons11()">-</button>
+                </div>
+                <div class="fourth">
+                    <button id="1" onclick="displaybuttons12()">1</button>
+                    <button id="2" onclick="displaybuttons13()">2</button>
+                    <button id="3" onclick="displaybuttons14()">3</button>
+                    <button id="add" onclick="displaybuttons17()">+</button>
+                </div>
+                <div class="fifth">
+                    <button id="." onclick="displaybuttons15()">.</button>
+                    <button id="0" onclick="displaybuttons16()">0</button>
+                    <button id="equal-to" onclick="calculation()">=</button>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <footer>
+            <script src="https://kit.fontawesome.com/c123ad8ef2.js" crossorigin="anonymous"></script>
+            <script src = "DarkMode_LightMode.js"></script>
+            <script src= "Calculator_Output.js"></script>
+        </footer>   
+</body>
+</html>
