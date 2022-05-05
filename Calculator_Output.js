@@ -12,109 +12,23 @@ let output2 = [];
 let output_final = [];
 
 let callcount = 0;
-
 let callcounts = 0;
 
+for (let i = 0; i < 10; i++){
+    document.getElementById(i).addEventListener("click", () => {
+        if (operator_sign){
+            second_input.push(i);
+            output2 = second_input.join("");
+            result.value = output2;
+        } else {
+            first_input.push(i);
+            output = first_input.join("");
+            result.value = output;
+        }
+    })
+}
 
-function displaybuttons4(){
-    if (operator_sign){
-        second_input.push("7");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("7");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons5(){
-    if (operator_sign){
-        second_input.push("8");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("8");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons6(){
-    if (operator_sign){
-        second_input.push("9");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("9");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons8(){
-    if (operator_sign){
-        second_input.push("4");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("4");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons9(){
-    if (operator_sign){
-        second_input.push("5");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("5");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons10(){
-    if (operator_sign){
-        second_input.push("6");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("6");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons12(){
-    if (operator_sign){
-        second_input.push("1");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("1");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons13(){
-    if (operator_sign){
-        second_input.push("2");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("2");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons14(){
-    if (operator_sign){
-        second_input.push("3");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("3");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
+
 function displaybuttons15(){
     if (operator_sign){
         second_input.push(".");
@@ -122,17 +36,6 @@ function displaybuttons15(){
         result.value = output2;
     } else {
         first_input.push(".");
-        output = first_input.join("");
-        result.value = output;
-    }
-}
-function displaybuttons16(){
-    if (operator_sign){
-        second_input.push("0");
-        output2 = second_input.join("");
-        result.value = output2;
-    } else {
-        first_input.push("0");
         output = first_input.join("");
         result.value = output;
     }
@@ -151,7 +54,7 @@ function displaybuttons17(){
         result.value = "+";
     }
 }
-function displaybuttons1(){
+function displaybuttons111(){
     callcount += 1;  
     if (callcount > 1){
         calculation2();
@@ -251,7 +154,9 @@ function calculation2() {
                 output_final = parseInt(output) / parseInt(output2);
                 break;  
 }   
-    operator_sign = undefined;
+
+    result.value = output_final;
+    // operator_sign = undefined;
     console.log (output);
 
     second_input = [];
