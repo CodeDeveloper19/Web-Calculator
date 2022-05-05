@@ -24,7 +24,7 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 second_input.push(allKeyInputs[i]);
                 output2 = second_input.join("");
                 result.value = output2;
-            } else {
+            } else if (!operator_sign && !callcounts){
                 first_input.push(allKeyInputs[i]);
                 output = first_input.join("");
                 result.value = output;
@@ -35,6 +35,7 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 result.value = "";
                 first_input.splice(0, first_input.length);
                 second_input.splice(0, second_input.length);
+                callcounts = 0;
                 break;
 
             case 12:
@@ -52,10 +53,11 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 break;
         }
         if (i >= 13 && i <= 16){
-            callcount += 1;  
+            callcount++; 
+            // callcounts = 1; 
             if (callcount > 1){
-                calculation2();
                 operator_sign = allKeyInputs[i];
+                calculation2();
             } else {
                 operator_sign = allKeyInputs[i];
                 for (let i = 0; i < signs.length; i++){
@@ -68,8 +70,8 @@ for (let i = 0; i < allKeyInputs.length; i++){
 /************************************************/
 
 function calculation() {
-
-    callcounts += 1;
+    callcounts = 1;
+    callcount = 0;
         switch (operator_sign){
             case "add":
                 output_final = parseInt(output) + parseInt(output2);
@@ -86,19 +88,22 @@ function calculation() {
             case "divide":
                 output_final = parseInt(output) / parseInt(output2);
                 break;  
-}   
-    operator_sign = undefined;
-    console.log (output);
-    console.log (callcounts);
+        }
 
-    if (callcounts >=1){
-        output = output_final;
-        result.value = output;
-    } else {
-        result.value = output_final;
-    }
+    operator_sign = undefined;
+    second_input = [];
+
+    output = output_final;
+    result.value = output;
+
+    // if (callcounts){
+    //     output = output_final;
+    //     result.value = output;
+    // } else {
+    //     result.value = output_final;
+    // }
     
-    console.log (output);
+    // console.log (output);
 }
 
 function calculation2() {
@@ -120,10 +125,16 @@ function calculation2() {
                 break;  
 }   
 
+    // if (callcounts){
+    //     output = output_final;
+    //     result.value = output;
+    // } else {
+    //     result.value = output_final;
+    // }
+
     result.value = output_final;
-    // operator_sign = undefined;
-    console.log (output);
+
+    operator_sign = undefined;
 
     second_input = [];
-    console.log (output2);
 }
