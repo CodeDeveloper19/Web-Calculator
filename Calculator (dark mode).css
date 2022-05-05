@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Radioland';
+    src: url('Radioland.eot');
+    src: url('Radioland.eot?#iefix') format('embedded-opentype'),
+        url('Radioland.woff2') format('woff2'),
+        url('Radioland.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    background-image: url("Argon.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+#calculator{
+    height: 500px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blueviolet;
+    border-radius: 10px;
+}
+
+button{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: rgb(63, 63, 196);
+    margin-bottom: 15px;
+    margin-left: 10px;
+    position: relative;
+    top: 60px;
+    left: 30px;
+    border-style: none;
+    color: white;
+}
+
+button:hover{
+    background-color: white;
+    cursor: pointer;
+    color: black;
+    transition: background 0.5s; /* This creates a smooth transition effect when the mouse hovers over the button */
+}
+
+#equal-to{
+    width: 105px;
+    border-radius: 50px;
+}
+
+.drop_down_menu{
+    /* position: relative;
+    top: 100px;
+    left: 110px; */
+    background-color: white;
+    height: 50%;
+    width: 30%;
+    color: black;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}
+
+#result{
+    width: 250px;
+    height: 80px;
+    background-color: rgb(63, 63, 196);
+    font-size: 50px; /* 4.167vw*/
+    font-family: 'Radioland';
+    text-align: right;
+    display: flex;
+    align-items: center;
+    position: relative;
+    outline: none;
+    border: 0;
+    color: black;
+    left: 25px;
+    top: 30px;
+}
+
+.first{
+    margin-top: 0;
+}
+
+h1{
+    font-size: 17px;
+    font-family: 'Saira Condensed', sans-serif;
+    margin: 0px 59px;
+    position: relative;
+    top: -5px;
+    color: white;
+}
+
+i{
+    margin: 0px 20px;
+    color: white;
+}
+
+i:hover{
+    color: black;
+    cursor: pointer;
+    transition: background 0.5s; /* This creates a smooth transition effect when the mouse hovers over the button */
+}
+
+.fas fa-bars{
+    position: relative;
+    right: 500px;
+}
+
+#c {
+    background-color: red;
+}
+
+#c:hover{
+    background-color: white;
+    cursor: pointer;
+    color: #011936ff;
+    transition: background 0.5s;
+}
+
+#divide, #multiply, #add, #subtract, #percentage, #square-root{
+    background-color: whitesmoke;
+    color: black;
+}
+
+
+#divide:hover, #multiply:hover, #add:hover, #subtract:hover, #percentage:hover, #square-root:hover{
+    background-color: rgb(63, 63, 196);
+}
