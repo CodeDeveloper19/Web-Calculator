@@ -17,7 +17,7 @@ let callcounts = 0;
 
 
 function displaybuttons4(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("7");
         output2 = second_input.join("");
         result.value = output2;
@@ -28,7 +28,7 @@ function displaybuttons4(){
     }
 }
 function displaybuttons5(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("8");
         output2 = second_input.join("");
         result.value = output2;
@@ -39,7 +39,7 @@ function displaybuttons5(){
     }
 }
 function displaybuttons6(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("9");
         output2 = second_input.join("");
         result.value = output2;
@@ -50,7 +50,7 @@ function displaybuttons6(){
     }
 }
 function displaybuttons8(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("4");
         output2 = second_input.join("");
         result.value = output2;
@@ -61,7 +61,7 @@ function displaybuttons8(){
     }
 }
 function displaybuttons9(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("5");
         output2 = second_input.join("");
         result.value = output2;
@@ -72,7 +72,7 @@ function displaybuttons9(){
     }
 }
 function displaybuttons10(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("6");
         output2 = second_input.join("");
         result.value = output2;
@@ -83,7 +83,7 @@ function displaybuttons10(){
     }
 }
 function displaybuttons12(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("1");
         output2 = second_input.join("");
         result.value = output2;
@@ -94,7 +94,7 @@ function displaybuttons12(){
     }
 }
 function displaybuttons13(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("2");
         output2 = second_input.join("");
         result.value = output2;
@@ -105,7 +105,7 @@ function displaybuttons13(){
     }
 }
 function displaybuttons14(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("3");
         output2 = second_input.join("");
         result.value = output2;
@@ -116,7 +116,7 @@ function displaybuttons14(){
     }
 }
 function displaybuttons15(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push(".");
         output2 = second_input.join("");
         result.value = output2;
@@ -127,7 +127,7 @@ function displaybuttons15(){
     }
 }
 function displaybuttons16(){
-    if (operator_sign == "add" || operator_sign == "subtract" || operator_sign == "multiply" || operator_sign == "divide" || operator_sign == "percent" || operator_sign == "square-root"){
+    if (operator_sign){
         second_input.push("0");
         output2 = second_input.join("");
         result.value = output2;
