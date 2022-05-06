@@ -31,7 +31,9 @@ for (let i = 0; i < allKeyInputs.length; i++){
         switch (i){
             case 11:
                 result.value = "";
-                output, output2 = null;
+                first_input = [];
+                second_input = [];
+                operator_sign = undefined;
                 callcount = 0;
                 callcounts = 0;
                 break;
@@ -109,9 +111,17 @@ function calculation() {
                 break;  
         }
     output = output_final;
-    result.value = output;
+    if (output.toString().length > 8 && Number.isInteger(output)){
+        result.value = output.toPrecision(3);  // round-off whole numbers to fit screen
+    }  else if (output.toString().length > 8 && !Number.isInteger(output)) {
+        result.value = output.toPrecision(3); // round-off decimal numbers to fit screen
+    }
     } else {
-        result.value = output;
+        if (output.toString().length > 8 && Number.isInteger(output)){
+            result.value = output.toPrecision(3);  // round-off whole numbers to fit screen
+        }  else if (output.toString().length > 8 && !Number.isInteger(output)) {
+            result.value = output.toPrecision(3); // round-off decimal numbers to fit screen
+        }
     }
 
     operator_sign = undefined;
