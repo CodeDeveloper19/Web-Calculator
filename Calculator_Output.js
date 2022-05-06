@@ -44,12 +44,15 @@ for (let i = 0; i < allKeyInputs.length; i++){
 
             case 17:
                 output_final = parseInt(output) * 0.01;
-                result.value = output_final;
+                second_input = [];
+                output = output_final;
+                result.value = output;
                 break;
             
             case 18:
                 output_final = Math.sqrt(parseInt(output));
-                result.value = output_final;
+                output = output_final;
+                result.value = output;
                 break;
         }
         if (i >= 13 && i <= 16){
@@ -70,31 +73,47 @@ for (let i = 0; i < allKeyInputs.length; i++){
 /************************************************/
 
 function calculation() {
+
     callcounts = 1;
     callcount = 0;
+    // if (Number.isInteger(output)){
+    //     // output = output;
+    //     console.log("A")
+    // } else {
+    //     // output = parseInt(output);
+    //     console.log("B")
+    // }
+
+    if (operator_sign){
         switch (operator_sign){
             case "add":
-                output_final = parseInt(output) + parseInt(output2);
+                output_final = output + parseInt(output2);
                 break;
         
             case "subtract":
-                output_final = parseInt(output) - parseInt(output2);
+                output_final = output - parseInt(output2);
                 break;
         
             case "multiply":
-                output_final = parseInt(output) * parseInt(output2);
+                output_final = output * parseInt(output2);
                 break;
         
             case "divide":
-                output_final = parseInt(output) / parseInt(output2);
+                output_final = output / parseInt(output2);
                 break;  
         }
+    } else {
+        result.value = output;
+    }
+
+    console.log(output2)
+    console.log(output)
 
     operator_sign = undefined;
     second_input = [];
 
-    output = output_final;
-    result.value = output;
+    // output = output_final;
+    // result.value = output;
 
     // if (callcounts){
     //     output = output_final;
