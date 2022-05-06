@@ -4,18 +4,16 @@ result = document.getElementById('result');
 result.disabled = true;
 
 let first_input = [];
-let main_first = [];
 let operator_sign;
 let second_input = [];
 let output = [];
 let output2 = [];
 let output_final = [];
 
-let callcount = 0;
-let callcounts = 0;
+let callcount = 0; // Number of times operator signs was clicked
+let callcounts = 0; // Number of times equal-to was clicked
 
 let allKeyInputs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ".", "c", "equal-to", "add", "divide", "multiply", "subtract", "percentage", "square-root"];
-let signs = ["+", "÷", "x", "-"]
 
 for (let i = 0; i < allKeyInputs.length; i++){
     document.getElementById(allKeyInputs[i]).addEventListener("click", () => {
@@ -33,8 +31,8 @@ for (let i = 0; i < allKeyInputs.length; i++){
         switch (i){
             case 11:
                 result.value = "";
-                first_input.splice(0, first_input.length);
-                second_input.splice(0, second_input.length);
+                output, output2 = null;
+                callcount = 0;
                 callcounts = 0;
                 break;
 
@@ -43,117 +41,106 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 break;
 
             case 17:
-                output_final = parseInt(output) * 0.01;
+                output_final = Number(output) * 0.01;
                 second_input = [];
                 output = output_final;
                 result.value = output;
                 break;
             
             case 18:
-                output_final = Math.sqrt(parseInt(output));
+                output_final = Math.sqrt(Number(output));
                 output = output_final;
                 result.value = output;
                 break;
         }
         if (i >= 13 && i <= 16){
             callcount++; 
-            // callcounts = 1; 
             if (callcount > 1){
-                operator_sign = allKeyInputs[i];
                 calculation2();
+                operator_sign = allKeyInputs[i];
             } else {
                 operator_sign = allKeyInputs[i];
-                for (let i = 0; i < signs.length; i++){
-                    result.value = signs[i]; 
+                switch (allKeyInputs[i]){
+                    case "add":
+                        result.value = "+";
+                        break;
+                
+                    case "subtract":
+                        result.value = "-";
+                        break;
+                
+                    case "multiply":
+                        result.value = "x";
+                        break;
+                
+                    case "divide":
+                        result.value = "÷";
+                        break;  
                 }
             }
         }
     })
 }
-/************************************************/
 
 function calculation() {
 
     callcounts = 1;
     callcount = 0;
-    // if (Number.isInteger(output)){
-    //     // output = output;
-    //     console.log("A")
-    // } else {
-    //     // output = parseInt(output);
-    //     console.log("B")
-    // }
 
-    if (operator_sign){
+    console.log(output)
+    console.log(output2)
+
+    if (operator_sign && output2){
         switch (operator_sign){
             case "add":
-                output_final = output + parseInt(output2);
+                output_final = Number(output) + Number(output2);
                 break;
         
             case "subtract":
-                output_final = output - parseInt(output2);
+                output_final = Number(output) - Number(output2);
                 break;
         
             case "multiply":
-                output_final = output * parseInt(output2);
+                output_final = Number(output) * Number(output2);
                 break;
         
             case "divide":
-                output_final = output / parseInt(output2);
+                output_final = Number(output) / Number(output2);
                 break;  
         }
+    output = output_final;
+    result.value = output;
     } else {
         result.value = output;
     }
 
-    console.log(output2)
-    console.log(output)
-
     operator_sign = undefined;
+    first_input = [];
     second_input = [];
-
-    // output = output_final;
-    // result.value = output;
-
-    // if (callcounts){
-    //     output = output_final;
-    //     result.value = output;
-    // } else {
-    //     result.value = output_final;
-    // }
-    
-    // console.log (output);
 }
 
 function calculation2() {
         switch (operator_sign){
             case "add":
-                output_final = parseInt(output) + parseInt(output2);
+                output_final = Number(output) + Number(output2);
                 break;
         
             case "subtract":
-                output_final = parseInt(output) - parseInt(output2);
+                output_final = Number(output) - Number(output2);
                 break;
         
             case "multiply":
-                output_final = parseInt(output) * parseInt(output2);
+                output_final = Number(output) * Number(output2);
                 break;
         
             case "divide":
-                output_final = parseInt(output) / parseInt(output2);
+                output_final = Number(output) / Number(output2);
                 break;  
 }   
-
-    // if (callcounts){
-    //     output = output_final;
-    //     result.value = output;
-    // } else {
-    //     result.value = output_final;
-    // }
-
-    result.value = output_final;
+    output = output_final;
+    result.value = output;
 
     operator_sign = undefined;
-
+    first_input = [];
     second_input = [];
 }

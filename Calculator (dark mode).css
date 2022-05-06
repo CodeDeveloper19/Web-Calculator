@@ -80,7 +80,7 @@ button:hover{
     width: 250px;
     height: 80px;
     background-color: rgb(63, 63, 196);
-    font-size: 50px; /* 4.167vw*/
+    font-size: 50px;
     font-family: 'Radioland';
     text-align: right;
     display: flex;
