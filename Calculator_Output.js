@@ -67,7 +67,7 @@ for (let i = 0; i < allKeyInputs.length; i++){
         }
         if (i == 15 || i == 16){
             callcount++; 
-            if (callcount > 1 && output2.length > 0){
+            if (callcount > 1 && output2.length){
                 calculation2();
                 operator_sign = allKeyInputs[i];
             } else {
@@ -85,7 +85,7 @@ for (let i = 0; i < allKeyInputs.length; i++){
         }
         if (i == 13 || i == 14){
             callcount++; 
-            if (callcount > 1 && output2.length > 0){
+            if (callcount > 1 && output2.length){
                 calculation2();
                 operator_sign = allKeyInputs[i];
             } else {
