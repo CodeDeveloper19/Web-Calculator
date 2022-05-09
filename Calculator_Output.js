@@ -33,6 +33,8 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 result.value = "";
                 first_input = [];
                 second_input = [];
+                output = null;
+                output2 = null;
                 operator_sign = undefined;
                 callcount = 0;
                 callcounts = 0;
@@ -63,22 +65,14 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 }
                 break;
         }
-        if (i >= 13 && i <= 16){
+        if (i == 15 || i == 16){
             callcount++; 
             if (callcount > 1 && output2.length > 0){
                 calculation2();
                 operator_sign = allKeyInputs[i];
             } else {
                 operator_sign = allKeyInputs[i];
-                switch (allKeyInputs[i]){
-                    case "add":
-                        result.value = "+";
-                        break;
-                
-                    case "subtract":
-                        result.value = "-";
-                        break;
-                
+                switch (allKeyInputs[i]){  
                     case "multiply":
                         result.value = "x";
                         break;
@@ -86,6 +80,24 @@ for (let i = 0; i < allKeyInputs.length; i++){
                     case "divide":
                         result.value = "÷";
                         break;  
+                }
+            }
+        }
+        if (i == 13 || i == 14){
+            callcount++; 
+            if (callcount > 1 && output2.length > 0){
+                calculation2();
+                operator_sign = allKeyInputs[i];
+            } else {
+                operator_sign = allKeyInputs[i];
+                switch (allKeyInputs[i]){  
+                    case "add":
+                        result.value = "+";
+                        break;
+                
+                    case "subtract":
+                        result.value = "-";
+                        break;
                 }
             }
         }
