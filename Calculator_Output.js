@@ -65,7 +65,7 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 }
                 break;
         }
-        if (i == 15 || i == 16){
+        if (i == 13 || i == 15 || i == 16){
             callcount++; 
             if (callcount > 1 && output2.length){
                 calculation2();
@@ -74,27 +74,34 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 operator_sign = allKeyInputs[i];
                 switch (allKeyInputs[i]){  
                     case "multiply":
-                        result.value = "x";
+                        if (output.length){
+                            result.value = "x";
+                        }
                         break;
                 
                     case "divide":
-                        result.value = "÷";
+                        if (output.length){
+                            result.value = "÷";
+                        }
                         break;  
+                    
+                    case "add":
+                        if (output.length){
+                            result.value = "+";
+                        }
+                        break;
                 }
             }
         }
-        if (i == 13 || i == 14){
+        
+        if (i == 14){
             callcount++; 
             if (callcount > 1 && output2.length){
                 calculation2();
                 operator_sign = allKeyInputs[i];
             } else {
                 operator_sign = allKeyInputs[i];
-                switch (allKeyInputs[i]){  
-                    case "add":
-                        result.value = "+";
-                        break;
-                
+                switch (allKeyInputs[i]){             
                     case "subtract":
                         result.value = "-";
                         break;
