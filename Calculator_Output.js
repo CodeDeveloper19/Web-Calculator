@@ -12,6 +12,7 @@ let output_final = [];
 
 let callcount = 0; // Number of times operator signs was clicked
 let callcounts = 0; // Number of times equal-to was clicked
+let callcountss = 0; // Number of times the negative sign is included;
 
 let allKeyInputs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ".", "c", "equal-to", "add", "subtract", "divide", "multiply", "percentage", "square-root"];
 
@@ -33,11 +34,12 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 result.value = "";
                 first_input = [];
                 second_input = [];
-                output = null;
-                output2 = null;
+                output = [];
+                output2 = [];
                 operator_sign = undefined;
                 callcount = 0;
                 callcounts = 0;
+                callcountss = 0;
                 break;
 
             case 12:
@@ -66,7 +68,7 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 break;
         }
         if (i == 13 || i == 15 || i == 16){
-            callcount++; 
+            callcount++;  
             if (callcount > 1 && output2.length){
                 calculation2();
                 operator_sign = allKeyInputs[i];
@@ -95,16 +97,27 @@ for (let i = 0; i < allKeyInputs.length; i++){
         }
         
         if (i == 14){
-            callcount++; 
-            if (callcount > 1 && output2.length){
-                calculation2();
-                operator_sign = allKeyInputs[i];
+            callcountss++;
+            if (output.length == 0 && !operator_sign && callcountss == 1){
+                first_input.push("-");
+                output = first_input.join("");
+                result.value = output;
+            } else if (output.length > 0 && operator_sign && callcountss == 1){
+                second_input.push("-");
+                output2 = second_input.join("");
+                result.value = output2;
             } else {
-                operator_sign = allKeyInputs[i];
-                switch (allKeyInputs[i]){             
-                    case "subtract":
-                        result.value = "-";
-                        break;
+                callcount++;
+                if (callcount > 1 && output2.length){
+                    calculation2();
+                    operator_sign = allKeyInputs[i];
+                } else {
+                    operator_sign = allKeyInputs[i];
+                    switch (allKeyInputs[i]){             
+                        case "subtract":
+                            result.value = "-";
+                            break;
+                    }
                 }
             }
         }
@@ -115,6 +128,7 @@ function calculation() {
 
     callcounts = 1;
     callcount = 0;
+    callcountss = 0;
 
     if (operator_sign && output2){
         switch (operator_sign){
@@ -152,9 +166,11 @@ function calculation() {
     operator_sign = undefined;
     first_input = [];
     second_input = [];
+    output2 = [];
 }
 
 function calculation2() {
+    if (operator_sign && output2 && output){
         switch (operator_sign){
             case "add":
                 output_final = Number(output) + Number(output2);
@@ -171,11 +187,15 @@ function calculation2() {
             case "divide":
                 output_final = Number(output) / Number(output2);
                 break;  
-}   
+    }
     output = output_final;
     result.value = output;
+    } else {
+        result.value = output;
+    }
 
     operator_sign = undefined;
     first_input = [];
     second_input = [];
+    output2 = [];
 }
