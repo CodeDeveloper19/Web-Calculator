@@ -20,11 +20,17 @@ let allKeyInputs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ".", "c", "equal-to", "add", "
 for (let i = 0; i < allKeyInputs.length; i++){
     document.getElementById(allKeyInputs[i]).addEventListener("click", () => {
         if (i >= 0 && i <= 9) {
+            console.log(output)
             if (operator_sign){
                 second_input.push(allKeyInputs[i]);
                 output2 = second_input.join("");
                 result.value = output2;
             } else if (!operator_sign && !callcounts){
+                first_input.push(allKeyInputs[i]);
+                output = first_input.join("");
+                result.value = output;
+            } else if ((output.toString).length > 0 || output == 5){
+                console.log("G")
                 first_input.push(allKeyInputs[i]);
                 output = first_input.join("");
                 result.value = output;
@@ -82,18 +88,15 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 break;
         }
         if (i == 13 || i == 15 || i == 16){
-            console.log(output)
             callcount++;  
             callcountss = 0;
             callcountsss = 0;
             if (callcount > 1 && output2.length){
-                console.log("B")
                 calculation2();
                 operator_sign = allKeyInputs[i];
             } else if ((output.length == 0)){
                 return null;
             } else {
-                console.log("A")
                 operator_sign = allKeyInputs[i];
                 switch (allKeyInputs[i]){  
                     case "multiply":
@@ -124,21 +127,16 @@ for (let i = 0; i < allKeyInputs.length; i++){
                 first_input.push("-");
                 output = first_input.join("");
                 result.value = output;
-                console.log("A")
             } else if (output.length > 0 && operator_sign && callcountss == 1 && output2.length == 0){
                 second_input.push("-");
                 output2 = second_input.join("");
                 result.value = output2;
-                console.log("B")
             } else if (Number.isInteger(Number(output)) || (Number(output) * 10.0) % 10 != 0){
-                console.log("C")
                 callcount++;
                 if (callcount > 1 && output2.length){
                     calculation2();
-                    console.log("D")
                     operator_sign = allKeyInputs[i];
                 } else {
-                    console.log("E")
                     operator_sign = allKeyInputs[i];
                     switch (allKeyInputs[i]){             
                         case "subtract":
