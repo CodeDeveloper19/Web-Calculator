@@ -46,7 +46,7 @@ button{
 }
 
 button:hover{
-    background-color: white;
+    background-color: white !important;
     cursor: pointer;
     color: black;
     transition: background 0.5s; /* This creates a smooth transition effect when the mouse hovers over the button */
@@ -55,6 +55,7 @@ button:hover{
 #equal-to{
     width: 105px;
     border-radius: 50px;
+    background-color: #bb22be;
 }
 
 .drop_down_menu{
@@ -122,11 +123,11 @@ i:hover{
     right: 500px;
 }
 
-#c {
+#c, #back {
     background-color: red;
 }
 
-#c:hover{
+#c:hover, #back:hover{
     background-color: white;
     cursor: pointer;
     color: #011936ff;
@@ -138,7 +139,11 @@ i:hover{
     color: black;
 }
 
+.divide, .multiply, .add, .subtract, .percentage, #square-root{
+    color: black;
+    background-color: white;
+}
 
-#divide:hover, #multiply:hover, #add:hover, #subtract:hover, #percentage:hover, #square-root:hover{
-    background-color: rgb(63, 63, 196);
+.divide:hover, .multiply:hover, .add:hover, .subtract:hover, .percentage:hover, #square-root:hover{
+    background-color: rgb(63, 63, 196) !important;
 }
