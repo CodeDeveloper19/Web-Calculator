@@ -3,7 +3,7 @@ let result = document.getElementById('result');
 result.disabled = true;
 
 let first_input = [], secondInput = [];
-let output, output2, calculationPressed, answer;
+let output, output2, calculationPressed, answer, newAnswer;
 
 let allKeyInputs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ".", "c", "equal-to", "+", "-", "/", "*", "%", "back"];
 
@@ -40,16 +40,49 @@ for (let i = 0; i < allKeyInputs.length; i++){
 }
 
 const remove = () => {
+    console.log(first_input)
+    console.log(secondInput)
+    console.log(output)
+    console.log(output2)
+    console.log(" ")
+    reuseCaclulatedValuesForRemoval();
     removeValuesForDisplay();
     removeValuesForCalculation();
+    calculationPressed = false;
+    console.log(first_input)
+    console.log(secondInput)
+    console.log(output)
+    console.log(output2)
 }
 
 const removeValuesForDisplay = () => {
-
+    first_input.pop();
+    output = first_input.join("");
+    result.value = output;
+    console.log("D")
+    console.log(first_input)
+    console.log(output)
+    console.log("D")
 }
 
 const removeValuesForCalculation = () => {
-    
+    secondInput.pop();
+    output2 = secondInput.join("");
+}
+
+const reuseCaclulatedValuesForRemoval = () => {
+    if (calculationPressed){
+        answer = answer.toString();
+        newAnswer = answer.split("");
+        first_input = newAnswer;
+        secondInput = newAnswer;
+        console.log("S")
+        console.log(first_input)
+        console.log(secondInput)
+        console.log(output)
+        console.log(output2)
+        console.log("S")
+    }
 }
 
 const percentageKeyPressed = () => {
@@ -60,6 +93,9 @@ const percentageKeyPressed = () => {
 }
 
 const addingValuesIntoArray = (a, b) => {
+    console.log("W")
+    console.log(first_input)
+    console.log("W")
     reuseCaclulatedValues();
     addingValuesForCalculation(b);
     addingValuesForDisplay(a);
@@ -94,8 +130,10 @@ const clearKeyPressed = () => {
 window.onerror = (() => result.value = "ERROR")
 
 const calculation = () => {
+    clearKeyPressed()
     answer = eval(output2);
     output2 = answer;
+    output = answer
     result.value = answer; 
     calculationPressed = true;
 }
