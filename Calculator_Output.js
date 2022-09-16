@@ -151,7 +151,7 @@ const preventAddAndSubtractOccurMultiple = (a, b) => {
         isAddPressed = true;
         isOperatorPressed = true;
         isDecimalPressed = false;
-    } else if ((b == "." && !isDecimalPressed && !first_input.includes(".")) || (b == "." && !isDecimalPressed && !isOperatorPressed)){
+    } else if ((b == "." && !isDecimalPressed && !first_input.includes(".")) || (b == "." && !isDecimalPressed && (!isOperatorPressed || isOperatorPressed))){
         addValuesIntoArrayAndDisplay(a, b);
         isDecimalPressed = true;
     }
