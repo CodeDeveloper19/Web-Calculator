@@ -6,30 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link type="text/css" rel="stylesheet" href="Calculator (dark mode).css" />
+    <link type="text/css" rel="stylesheet" href="Calculator.css" />
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
         <div id="calculator">
             <div class="header">
-            <div>
-                <i class="fas fa-bars" onclick="drop_down_menu()"></i>
-                <!-- <div class="drop-down-menu">
-                    <ul style="list-style: none;">
-                        <li>sin</li>
-                        <li>cos</li>
-                        <li>tan</li>
-                        <li>log</li>
-                        <li>ln</li>
-                    </ul>
-                </div> -->
+                <div>
+                    <i class="fas fa-bars"></i>
+                </div>
+                <h1>Calculator</h1>
+                <i class="fas fa-moon" id="lala" onclick="changetheme()"></i>
             </div>
-            <h1>Calculator</h1>
-            <i class="fas fa-moon" id="lala" onclick="changetheme()"></i>
-            </div>
-            
             <input id= "result">
-            
             <div class="buttons">
                 <div class="first">
                     <button id="c">C</button>
@@ -65,7 +54,7 @@
             
         </div>
         <script src="https://kit.fontawesome.com/c123ad8ef2.js" crossorigin="anonymous"></script>
-        <script src = "DarkMode_LightMode.js"></script>
-        <script src= "Calculator_Output.js"></script>   
+        <script src = "/Javascript/DarkMode_LightMode.js"></script>
+        <script src= "/Javascript/Calculator_Output.js"></script>   
 </body>
 </html>

@@ -2,18 +2,18 @@ const lala = document.getElementById("lala")
 const calculator = document.getElementById("calculator")
 const body = document.body
 
-function changetheme(){
-    
+const changetheme = () => {
     if (lala.classList[1] == "fa-sun") {
-        lala.classList.replace("fa-sun", "fa-moon")
-        body.style.backgroundImage = "url(Argon.png)"
-        calculator.style.backgroundColor = "blueviolet"
-        document.getElementById("result").style.color = "black"
+        changeBackgroundColorAndImage("fa-sun", "fa-moon", "url(/Background-Images/Argon.png)", "blueviolet", "black");
     } else {
-        lala.classList.replace("fa-moon", "fa-sun")
-        body.style.backgroundImage = "url(Telegram.png)"
-        calculator.style.backgroundColor = "lightblue"
-        document.getElementById("result").style.color = "white"
+        changeBackgroundColorAndImage("fa-moon", "fa-sun", "url(/Background-Images/Telegram.png)", "lightblue", "white");
     }
+}
+
+const changeBackgroundColorAndImage = (a, b, c, d, e) => {
+    lala.classList.replace(a, b)
+    body.style.backgroundImage = c;
+    calculator.style.backgroundColor = d;
+    document.getElementById("result").style.color = e;
 }
                                                                                                                                                                                                                                                                                                                                        
