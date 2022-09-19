@@ -50,13 +50,17 @@ const remove = () => {
 }
 
 const resetsIsPressedConditions = () => {
-    if (first_input[first_input.length - 1] == "+"){
+    let length = first_input.length;
+    if (first_input[length- 1] == "+"){
         isAddPressed = false;
-    } else if (first_input[first_input.length - 1] == "-"){
+    } else if (first_input[length- 1] == "-"){
         isSubtractPressed = false;
-    } 
-    else if (first_input[first_input.length - 1] == "."){
+    } else if (first_input[length- 1] == "."){
         isDecimalPressed = false;
+    } else if (first_input[length- 1] == "x"){
+        isOperatorPressed = false;
+    } else if (first_input[length- 1] == "÷"){
+        isOperatorPressed = false;
     }
 }
 
@@ -76,8 +80,8 @@ const reuseCaclulatedValuesForRemoval = () => {
         answer = answer.toString();
         newAnswer = answer.split("");
         for (let i = 0, x = newAnswer.length; i < x; i++){
-            first_input.push(newAnswer[i])
-            secondInput.push(newAnswer[i])
+            first_input.push(newAnswer[i]);
+            secondInput.push(newAnswer[i]);
         }
     }
 }
@@ -131,7 +135,7 @@ const preventOperatorStartingInput = (a, b) => {
             result.value = "";
         }
     } else if (b == "-" || b == "+" || b == "."){
-        preventAddAndSubtractOccurMultiple(a, b)
+        preventAddAndSubtractOccurMultiple(a, b);
     } else {
         addValuesIntoArrayAndDisplay(a, b);
         isSubtractPressed = false;
@@ -151,7 +155,7 @@ const preventAddAndSubtractOccurMultiple = (a, b) => {
         isAddPressed = true;
         isOperatorPressed = true;
         isDecimalPressed = false;
-    } else if ((b == "." && !isDecimalPressed && !first_input.includes(".")) || (b == "." && !isDecimalPressed && !isOperatorPressed)){
+    } else if ((b == "." && !isDecimalPressed && !first_input.includes(".")) || (b == "." && !isDecimalPressed && isOperatorPressed) || (b == "." && !isDecimalPressed && !isOperatorPressed)){
         addValuesIntoArrayAndDisplay(a, b);
         isDecimalPressed = true;
     }
@@ -193,14 +197,21 @@ const clearKeyPressed = () => {
 }
 
 const calculation = () => {
-    if (isAddPressed || isSubtractPressed){
+    let length = first_input.length;
+    if (first_input[length - 1] == "+"){
         return;
-    } else if ((!isDecimalPressed || !isOperatorPressed)){
+    } else if (first_input[length - 1] == "-"){
+        return;
+    } else if (first_input[length - 1] == "."){
+        return;
+    } else if (first_input[length - 1] == "x"){
+        return;
+    } else if (first_input[length - 1] == "÷"){
+        return;
+    } else {
         clearKeyPressed();
         answer = eval(output2);
         computeResults(answer);
-    } else {
-        return;
     }
 }
 
