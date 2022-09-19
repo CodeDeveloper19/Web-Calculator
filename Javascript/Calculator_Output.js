@@ -155,7 +155,11 @@ const preventAddAndSubtractOccurMultiple = (a, b) => {
         isAddPressed = true;
         isOperatorPressed = true;
         isDecimalPressed = false;
+<<<<<<< HEAD:Javascript/Calculator_Output.js
     } else if ((b == "." && !isDecimalPressed && !first_input.includes(".")) || (b == "." && !isDecimalPressed && isOperatorPressed) || (b == "." && !isDecimalPressed && !isOperatorPressed)){
+=======
+    } else if ((b == "." && !isDecimalPressed && !first_input.includes(".")) || (b == "." && !isDecimalPressed && (!isOperatorPressed || isOperatorPressed))){
+>>>>>>> 62659ce61946179ad027d41a2f5f738c8d837e99:Calculator_Output.js
         addValuesIntoArrayAndDisplay(a, b);
         isDecimalPressed = true;
     }
